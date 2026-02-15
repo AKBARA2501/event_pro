@@ -80,15 +80,14 @@ WSGI_APPLICATION = 'backend.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/6.0/ref/settings/#databases
 
+import dj_database_url
+
 DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.mysql',
-        'NAME': config('DB_NAME', default='event_pro'),
-        'USER': config('DB_USER', default='root'),
-        'PASSWORD': config('DB_PASSWORD', default='akbar@27022004'),
-        'HOST': config('DB_HOST', default='localhost'),
-        'PORT': config('DB_PORT', default='3306'),
-    }
+    'default': config(
+        'DATABASE_URL',
+        default=f"mysql://{config('DB_USER', default='root')}:{config('DB_PASSWORD', default='akbar@27022004')}@{config('DB_HOST', default='localhost')}:{config('DB_PORT', default='3306')}/{config('DB_NAME', default='event_pro')}",
+        cast=dj_database_url.parse
+    )
 }
 
 

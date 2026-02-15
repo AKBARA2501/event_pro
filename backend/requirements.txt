@@ -5,3 +5,5 @@ python-decouple==3.8
 gunicorn
 whitenoise[brotli]
 mysqlclient
+dj-database-url
+psycopg2-binary
