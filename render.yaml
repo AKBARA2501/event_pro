@@ -2,6 +2,7 @@ services:
   # Backend: Django Web Service
   - type: web
     name: event-pro-backend
+    plan: free
     runtime: python
     buildCommand: ./build.sh
     startCommand: gunicorn backend.wsgi:application
@@ -21,6 +22,7 @@ services:
   # Frontend: Vite Static Site
   - type: web
     name: event-pro-frontend
+    plan: free
     runtime: static
     buildCommand: npm run build
     staticPublishPath: dist
