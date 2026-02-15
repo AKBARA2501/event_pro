@@ -19,11 +19,11 @@ services:
         value: "*" # You should restrict this to your actual URL later
 
   # Frontend: Vite Static Site
-  - type: static
+  - type: web
     name: event-pro-frontend
     runtime: static
     buildCommand: npm run build
-    publishDir: dist
+    staticPublishPath: dist
     rootDir: frontend
     envVars:
       - key: VITE_API_BASE_URL
