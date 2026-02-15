@@ -1,0 +1,218 @@
+.event-details {
+  min-height: 100vh;
+}
+
+.event-header-detail {
+  background: linear-gradient(135deg, var(--primary) 0%, var(--secondary) 100%);
+  color: white;
+  padding: 40px 0;
+}
+
+.back-link {
+  color: white;
+  font-weight: 600;
+  display: inline-flex;
+  align-items: center;
+  margin-bottom: 15px;
+  transition: opacity 0.3s;
+}
+
+.back-link:hover {
+  opacity: 0.8;
+}
+
+.event-header-detail h1 {
+  font-size: 2.5rem;
+  color: white;
+}
+
+.event-content {
+  display: grid;
+  grid-template-columns: 1fr 350px;
+  gap: 40px;
+  padding: 40px 0;
+}
+
+.event-main {
+  background: white;
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: var(--shadow-md);
+}
+
+.event-image-large {
+  background: linear-gradient(135deg, var(--primary), var(--secondary));
+  font-size: 5rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 300px;
+}
+
+.event-info-section,
+.event-highlights,
+.event-organizer {
+  padding: 30px;
+  border-bottom: 1px solid var(--border);
+}
+
+.event-highlights ul {
+  list-style: none;
+}
+
+.event-highlights li {
+  padding: 10px 0;
+  color: var(--text);
+  font-weight: 500;
+}
+
+.event-organizer {
+  border-bottom: none;
+}
+
+.organizer-info {
+  display: flex;
+  gap: 15px;
+  align-items: center;
+}
+
+.organizer-avatar {
+  font-size: 2.5rem;
+}
+
+.organizer-info h4 {
+  margin-bottom: 5px;
+}
+
+.organizer-info p {
+  color: var(--text-light);
+  font-size: 0.9rem;
+}
+
+.event-sidebar {
+  height: fit-content;
+  position: sticky;
+  top: 100px;
+}
+
+.booking-card {
+  background: white;
+  padding: 25px;
+  border-radius: 12px;
+  box-shadow: var(--shadow-md);
+  margin-bottom: 20px;
+}
+
+.price-section {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+  margin-bottom: 25px;
+  padding-bottom: 25px;
+  border-bottom: 1px solid var(--border);
+}
+
+.original-price {
+  text-decoration: line-through;
+  color: var(--text-light);
+  font-size: 0.9rem;
+}
+
+.current-price {
+  font-size: 2rem;
+  font-weight: 700;
+  color: var(--primary);
+}
+
+.discount {
+  background: var(--success);
+  color: white;
+  padding: 6px 12px;
+  border-radius: 20px;
+  font-size: 0.8rem;
+  font-weight: 600;
+}
+
+.event-meta {
+  margin-bottom: 25px;
+}
+
+.meta-item {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 15px;
+}
+
+.meta-item .label {
+  color: var(--text-light);
+  font-size: 0.8rem;
+  text-transform: uppercase;
+  font-weight: 600;
+  margin-bottom: 3px;
+}
+
+.meta-item .value {
+  color: var(--text);
+  font-weight: 500;
+}
+
+.ticket-selection {
+  margin-bottom: 20px;
+}
+
+.ticket-selection label {
+  display: block;
+  margin-bottom: 8px;
+  color: var(--text);
+  font-weight: 600;
+}
+
+.ticket-selection select {
+  width: 100%;
+  padding: 10px;
+  border: 1px solid var(--border);
+  border-radius: 6px;
+  font-family: 'Poppins', sans-serif;
+}
+
+.share-section {
+  background: white;
+  padding: 20px;
+  border-radius: 12px;
+  box-shadow: var(--shadow-md);
+}
+
+.share-section h4 {
+  margin-bottom: 15px;
+}
+
+.share-buttons {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 10px;
+}
+
+.share-btn {
+  border: 2px solid var(--border);
+  background: white;
+  border-radius: 8px;
+  cursor: pointer;
+  padding: 10px;
+  font-size: 1.2rem;
+  transition: all 0.3s ease;
+}
+
+.share-btn:hover {
+  border-color: var(--primary);
+  background: rgba(99, 102, 241, 0.1);
+}
+
+@media (max-width: 768px) {
+  .event-content {
+    grid-template-columns: 1fr;
+  }
+
+  .event-sidebar {
+    position: static;
+  }
+}

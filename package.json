@@ -1,0 +1,28 @@
+{
+  "name": "event-pro",
+  "version": "1.0.0",
+  "description": "EventPro - Premium Event Management Platform",
+  "private": true,
+  "scripts": {
+    "install-all": "npm install && cd backend && pip install -r requirements.txt && cd ../frontend && npm install",
+    "dev": "concurrently \"npm run backend:dev\" \"npm run frontend:dev\"",
+    "backend:dev": "cd backend && python manage.py runserver",
+    "backend:migrate": "cd backend && python manage.py migrate",
+    "backend:makemigrations": "cd backend && python manage.py makemigrations",
+    "frontend:dev": "cd frontend && npm run dev",
+    "frontend:build": "cd frontend && npm run build",
+    "start": "npm run dev"
+  },
+  "devDependencies": {
+    "concurrently": "^8.2.0"
+  },
+  "keywords": [
+    "events",
+    "management",
+    "booking",
+    "django",
+    "react"
+  ],
+  "author": "EventPro Team",
+  "license": "MIT"
+}

@@ -1,0 +1,73 @@
+# Root Dependencies
+node_modules/
+venv/
+.venv/
+
+# Environment variables
+.env
+.env.local
+.env.*.local
+
+# Backend - Python
+backend/.venv/
+backend/venv/
+backend/__pycache__/
+backend/*.pyc
+backend/*.pyo
+backend/*.pyd
+backend/.Python
+backend/db.sqlite3
+backend/db.sqlite3-journal
+backend/.env
+
+# Backend - IDE
+backend/.vscode/
+backend/.idea/
+backend/*.swp
+backend/*.swo
+
+# Frontend - Node
+frontend/node_modules/
+frontend/dist/
+frontend/.next/
+frontend/out/
+
+# Frontend - IDE
+frontend/.vscode/
+frontend/.idea/
+frontend/*.swp
+frontend/*.swo
+
+# Frontend - Environment
+frontend/.env.local
+frontend/.env.*.local
+
+# Logs
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+lerna-debug.log*
+
+# OS
+.DS_Store
+Thumbs.db
+*.bak
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+.project
+.classpath
+.c9/
+
+# Build
+dist/
+build/
+out/
+*.o
+*.a
+*.so

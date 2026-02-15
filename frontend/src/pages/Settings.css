@@ -1,0 +1,167 @@
+.settings {
+  min-height: 100vh;
+}
+
+.settings-layout {
+  display: grid;
+  grid-template-columns: 200px 1fr;
+  gap: 30px;
+  padding: 40px 0;
+}
+
+.settings-sidebar {
+  height: fit-content;
+  position: sticky;
+  top: 100px;
+}
+
+.settings-nav {
+  background: white;
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: var(--shadow-md);
+}
+
+.nav-item {
+  display: block;
+  padding: 15px 20px;
+  border-left: 4px solid transparent;
+  color: var(--text);
+  transition: all 0.3s ease;
+  border-bottom: 1px solid var(--border);
+}
+
+.nav-item:last-child {
+  border-bottom: none;
+}
+
+.nav-item:hover,
+.nav-item.active {
+  background: rgba(99, 102, 241, 0.1);
+  border-left-color: var(--primary);
+  color: var(--primary);
+}
+
+.settings-content {
+  display: grid;
+  gap: 25px;
+}
+
+.settings-section {
+  background: white;
+  padding: 30px;
+  border-radius: 12px;
+  box-shadow: var(--shadow-md);
+}
+
+.settings-section h2 {
+  margin-bottom: 10px;
+}
+
+.section-description {
+  color: var(--text-light);
+  font-size: 0.9rem;
+  margin-bottom: 25px;
+}
+
+.settings-group {
+  display: grid;
+  gap: 20px;
+}
+
+.settings-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 15px;
+  background: var(--light);
+  border-radius: 8px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.settings-item:hover {
+  background: rgba(99, 102, 241, 0.05);
+}
+
+.settings-item h4 {
+  margin-bottom: 5px;
+  font-size: 0.95rem;
+}
+
+.settings-item p {
+  color: var(--text-light);
+  font-size: 0.85rem;
+}
+
+.toggle {
+  width: 50px;
+  height: 26px;
+  cursor: pointer;
+}
+
+.select-input {
+  padding: 10px 15px;
+  border: 2px solid var(--border);
+  border-radius: 8px;
+  font-family: 'Poppins', sans-serif;
+  cursor: pointer;
+}
+
+.security-options {
+  display: grid;
+  gap: 15px;
+}
+
+.security-option {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px;
+  background: var(--light);
+  border-radius: 8px;
+  gap: 20px;
+}
+
+.security-option h4 {
+  margin-bottom: 5px;
+}
+
+.security-option p {
+  color: var(--text-light);
+  font-size: 0.9rem;
+}
+
+.settings-actions {
+  display: flex;
+  gap: 15px;
+  justify-content: flex-end;
+  padding-top: 20px;
+}
+
+@media (max-width: 768px) {
+  .settings-layout {
+    grid-template-columns: 1fr;
+  }
+
+  .settings-sidebar {
+    position: static;
+  }
+
+  .settings-nav {
+    display: flex;
+    gap: 10px;
+    overflow-x: auto;
+  }
+
+  .nav-item {
+    white-space: nowrap;
+    flex-shrink: 0;
+    border-bottom: none;
+    border-bottom: 2px solid transparent;
+  }
+
+  .settings-actions {
+    flex-direction: column;
+  }
+}
