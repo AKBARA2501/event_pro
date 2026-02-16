@@ -1,8 +1,8 @@
 .navbar {
-  background: rgba(15, 23, 42, 0.7);
-  backdrop-filter: blur(12px);
-  -webkit-backdrop-filter: blur(12px);
-  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+  background: rgba(0, 0, 0, 0.85);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border-bottom: 1px solid var(--border);
   position: sticky;
   top: 0;
   z-index: 100;
@@ -13,58 +13,60 @@
   display: flex;
   align-items: center;
   justify-content: space-between;
-  height: 80px;
+  height: 90px;
 }
 
 .navbar-logo {
-  font-size: 1.8rem;
-  font-weight: 800;
+  font-size: 2rem;
+  font-weight: 700;
   display: flex;
   align-items: center;
-  gap: 12px;
-  background: linear-gradient(135deg, var(--primary), var(--secondary), var(--accent));
+  gap: 15px;
+  background: var(--gold-gradient);
   -webkit-background-clip: text;
   background-clip: text;
   -webkit-text-fill-color: transparent;
-  font-family: 'Outfit', sans-serif;
+  font-family: 'Cinzel', serif;
+  text-transform: uppercase;
 }
 
 .logo-icon {
-  font-size: 2rem;
+  font-size: 2.2rem;
   filter: drop-shadow(0 0 10px var(--primary-glow));
 }
 
 .navbar-links {
   display: flex;
   list-style: none;
-  gap: 32px;
+  gap: 40px;
   margin-left: auto;
-  margin-right: 48px;
+  margin-right: 60px;
 }
 
 .navbar-links a {
-  color: var(--text);
-  font-weight: 500;
-  font-size: 15px;
+  color: var(--text-bright);
+  font-weight: 600;
+  font-size: 13px;
+  text-transform: uppercase;
+  letter-spacing: 0.2em;
   transition: all 0.3s ease;
   position: relative;
 }
 
 .navbar-links a:hover {
-  color: white;
-  text-shadow: 0 0 15px var(--primary-glow);
+  color: var(--primary);
+  text-shadow: 0 0 10px var(--primary-glow);
 }
 
 .navbar-links a::after {
   content: '';
   position: absolute;
-  bottom: -6px;
+  bottom: -8px;
   left: 0;
   width: 0;
-  height: 2px;
-  background: linear-gradient(to right, var(--primary), var(--secondary));
+  height: 1px;
+  background: var(--primary);
   transition: width 0.3s ease;
-  border-radius: 2px;
 }
 
 .navbar-links a:hover::after {
@@ -72,19 +74,19 @@
 }
 
 .navbar-actions .btn-outline {
-  border: 1px solid rgba(255, 255, 255, 0.2);
+  border: 1px solid var(--primary);
   background: transparent;
-  color: white;
-  border-radius: 99px;
-  padding: 8px 20px;
+  color: var(--primary);
+  border-radius: 4px;
+  padding: 10px 24px;
 }
 
 .navbar-actions .btn-outline:hover {
-  background: rgba(255, 255, 255, 0.1);
-  border-color: white;
+  background: rgba(212, 175, 55, 0.1);
+  box-shadow: 0 0 15px var(--primary-glow);
 }
 
-@media (max-width: 992px) {
+@media (max-width: 1024px) {
   .navbar-links {
     display: none;
   }
