@@ -11,6 +11,7 @@
     "backend:makemigrations": "cd backend && python manage.py makemigrations",
     "frontend:dev": "cd frontend && npm run dev",
     "frontend:build": "cd frontend && npm run build",
+    "build": "npm run frontend:build",
     "start": "npm run dev"
   },
   "devDependencies": {
