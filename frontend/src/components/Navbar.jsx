@@ -9,7 +9,7 @@ export default function Navbar() {
           <Link to="/" className="navbar-logo">
             <span className="logo-icon">🪄</span> Artify Aura
           </Link>
-          
+
           <ul className="navbar-links">
             <li><Link to="/">Home</Link></li>
             <li><Link to="/events">Events</Link></li>
@@ -18,10 +18,9 @@ export default function Navbar() {
             <li><Link to="/dashboard">Dashboard</Link></li>
             <li><Link to="/about">About</Link></li>
           </ul>
-          
+
           <div className="navbar-actions">
             <Link to="/profile" className="btn btn-outline">Profile</Link>
-              <span className="logo-icon">🪄</span> Artify Aura
           </div>
         </div>
       </div>
