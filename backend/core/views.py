@@ -27,6 +27,33 @@ class EventViewSet(viewsets.ModelViewSet):
         events = Event.objects.filter(organizer=request.user)
         serializer = self.get_serializer(events, many=True)
         return Response(serializer.data)
+
+    @action(detail=False, methods=['get'], permission_classes=[IsAuthenticated])
+    def dashboard(self, request):
+        user_events = Event.objects.filter(organizer=request.user)
+        total_events = user_events.count()
+        
+        # Total attendees for events managed by this user
+        total_attendees = Booking.objects.filter(
+            event__organizer=request.user,
+            payment_status='completed'
+        ).aggregate(total=Sum('quantity'))['total'] or 0
+        
+        # Total revenue for events managed by this user
+        total_revenue = Booking.objects.filter(
+            event__organizer=request.user,
+            payment_status='completed'
+        ).aggregate(total=Sum('total_price'))['total'] or 0
+        
+        recent_events = user_events.order_by('-created_at')[:5]
+        recent_serializer = self.get_serializer(recent_events, many=True)
+        
+        return Response({
+            'total_events': total_events,
+            'total_attendees': total_attendees,
+            'total_revenue': float(total_revenue),
+            'recent_events': recent_serializer.data
+        })
     
     @action(detail=True, methods=['post'], permission_classes=[IsAuthenticated])
     def book(self, request, pk=None):
