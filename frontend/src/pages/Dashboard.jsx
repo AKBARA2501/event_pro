@@ -1,18 +1,46 @@
+import { useState, useEffect } from 'react'
+import { eventAPI } from '../services/api'
 import './Dashboard.css'
 
 export default function Dashboard() {
+  const [statsData, setStatsData] = useState(null)
+  const [loading, setLoading] = useState(true)
+  const [error, setError] = useState(null)
+
+  useEffect(() => {
+    fetchDashboardStats()
+  }, [])
+
+  const fetchDashboardStats = async () => {
+    try {
+      setLoading(true)
+      const response = await eventAPI.getDashboardStats()
+      setStatsData(response.data)
+      setError(null)
+    } catch (err) {
+      console.error('Error fetching dashboard stats:', err)
+      setError('Failed to load dashboard statistics.')
+    } finally {
+      setLoading(false)
+    }
+  }
+
   const stats = [
-    { label: 'Total Events', value: 12, icon: '📅', color: 'primary' },
-    { label: 'Total Attendees', value: 1250, icon: '👥', color: 'secondary' },
-    { label: 'Total Revenue', value: '$15,450', icon: '💰', color: 'success' },
+    { label: 'Total Events', value: statsData?.total_events || 0, icon: '📅', color: 'primary' },
+    { label: 'Total Attendees', value: statsData?.total_attendees || 0, icon: '👥', color: 'secondary' },
+    { label: 'Total Revenue', value: `$${statsData?.total_revenue?.toLocaleString() || '0'}`, icon: '💰', color: 'success' },
     { label: 'Avg. Rating', value: '4.8/5', icon: '⭐', color: 'warning' }
   ]
 
-  const recentEvents = [
-    { title: 'Tech Summit', date: 'Mar 15', status: 'active', attendees: 450 },
-    { title: 'Gala Night', date: 'Mar 20', status: 'upcoming', attendees: 200 },
-    { title: 'Workshop', date: 'Mar 25', status: 'upcoming', attendees: 120 }
-  ]
+  const recentEvents = statsData?.recent_events || []
+
+  if (loading) return (
+    <div className="dashboard container">
+      <div style={{ padding: '50px', textAlign: 'center' }}>
+        <h2>Loading Dashboard...</h2>
+      </div>
+    </div>
+  )
 
   return (
     <div className="dashboard">
@@ -24,6 +52,8 @@ export default function Dashboard() {
       </div>
 
       <div className="container">
+        {error && <div className="error-message" style={{ color: 'red', marginBottom: '20px' }}>{error}</div>}
+
         <div className="dashboard-content">
           <div className="stats-grid">
             {stats.map((stat, idx) => (
@@ -39,23 +69,27 @@ export default function Dashboard() {
 
           <div className="dashboard-grid">
             <div className="dashboard-card">
-              <h3>Recent Events</h3>
+              <h3>Recent My Events</h3>
               <div className="events-list-dashboard">
-                {recentEvents.map((event, idx) => (
-                  <div key={idx} className="event-item">
-                    <div>
-                      <h4>{event.title}</h4>
-                      <p>{event.date}</p>
+                {recentEvents.length > 0 ? (
+                  recentEvents.map((event, idx) => (
+                    <div key={idx} className="event-item">
+                      <div>
+                        <h4>{event.title}</h4>
+                        <p>{new Date(event.date).toLocaleDateString()}</p>
+                      </div>
+                      <div className="event-meta">
+                        <span className={`status-badge ${event.status}`}>{event.status}</span>
+                        <span className="attendees">${event.price}</span>
+                      </div>
                     </div>
-                    <div className="event-meta">
-                      <span className={`status-badge ${event.status}`}>{event.status}</span>
-                      <span className="attendees">{event.attendees} attending</span>
-                    </div>
-                  </div>
-                ))}
+                  ))
+                ) : (
+                  <p>No events created yet.</p>
+                )}
               </div>
             </div>
-
+            {/* Rest of the UI elements (Quick Actions, Performance, etc.) */}
             <div className="dashboard-card">
               <h3>Quick Actions</h3>
               <div className="actions-grid">

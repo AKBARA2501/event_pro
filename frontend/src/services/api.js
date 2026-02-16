@@ -22,50 +22,54 @@ apiClient.interceptors.request.use((config) => {
 // Event API
 export const eventAPI = {
   // Get all events
-  getAllEvents: (page = 1) => 
+  getAllEvents: (page = 1) =>
     apiClient.get('/events/', { params: { page } }),
-  
+
   // Get event by ID
-  getEventById: (id) => 
+  getEventById: (id) =>
     apiClient.get(`/events/${id}/`),
-  
+
   // Get my events
-  getMyEvents: () => 
+  getMyEvents: () =>
     apiClient.get('/events/my_events/'),
-  
+
   // Create event
-  createEvent: (eventData) => 
+  createEvent: (eventData) =>
     apiClient.post('/events/', eventData),
-  
+
   // Update event
-  updateEvent: (id, eventData) => 
+  updateEvent: (id, eventData) =>
     apiClient.patch(`/events/${id}/`, eventData),
-  
+
   // Delete event
-  deleteEvent: (id) => 
+  deleteEvent: (id) =>
     apiClient.delete(`/events/${id}/`),
-  
+
+  // Get dashboard statistics
+  getDashboardStats: () =>
+    apiClient.get('/events/dashboard/'),
+
   // Book event
-  bookEvent: (eventId, bookingData) => 
+  bookEvent: (eventId, bookingData) =>
     apiClient.post(`/events/${eventId}/book/`, bookingData),
 }
 
 // Booking API
 export const bookingAPI = {
   // Get my bookings
-  getMyBookings: () => 
+  getMyBookings: () =>
     apiClient.get('/bookings/my_bookings/'),
-  
+
   // Get all bookings (admin)
-  getAllBookings: () => 
+  getAllBookings: () =>
     apiClient.get('/bookings/'),
-  
+
   // Get booking by ID
-  getBookingById: (id) => 
+  getBookingById: (id) =>
     apiClient.get(`/bookings/${id}/`),
-  
+
   // Cancel booking
-  cancelBooking: (id) => 
+  cancelBooking: (id) =>
     apiClient.delete(`/bookings/${id}/`),
 }
 
