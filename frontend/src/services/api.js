@@ -52,6 +52,10 @@ export const eventAPI = {
   // Book event
   bookEvent: (eventId, bookingData) =>
     apiClient.post(`/events/${eventId}/book/`, bookingData),
+
+  // Get event attendees (organizer only)
+  getEventAttendees: (id) =>
+    apiClient.get(`/events/${id}/attendees/`),
 }
 
 // Booking API

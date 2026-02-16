@@ -55,6 +55,16 @@ class EventViewSet(viewsets.ModelViewSet):
             'recent_events': recent_serializer.data
         })
     
+    @action(detail=True, methods=['get'], permission_classes=[IsAuthenticated])
+    def attendees(self, request, pk=None):
+        event = self.get_object()
+        if event.organizer != request.user:
+            return Response({'error': 'Not authorized'}, status=status.HTTP_403_FORBIDDEN)
+        
+        bookings = Booking.objects.filter(event=event, payment_status='completed')
+        serializer = BookingSerializer(bookings, many=True)
+        return Response(serializer.data)
+
     @action(detail=True, methods=['post'], permission_classes=[IsAuthenticated])
     def book(self, request, pk=None):
         event = self.get_object()

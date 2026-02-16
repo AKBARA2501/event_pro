@@ -69,7 +69,8 @@ export default function MyEvents() {
                       <span className={`status-badge ${event.status}`}>{event.status}</span>
                     </div>
                     <div className="col-actions">
-                      <Link to={`/event/${event.id}`} className="action-btn" title="View">👁️</Link>
+                      <Link to={`/event/${event.id}`} className="action-btn" title="View Detail">👁️</Link>
+                      <Link to={`/event/${event.id}/attendees`} className="action-btn" title="View Attendees">👥</Link>
                       <button className="action-btn" title="Edit">✏️</button>
                       <button className="action-btn" title="Delete">🗑️</button>
                     </div>

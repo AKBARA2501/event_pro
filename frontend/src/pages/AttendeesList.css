@@ -1,0 +1,59 @@
+.attendees-list {
+  padding-bottom: 50px;
+}
+
+.header-nav {
+  margin-bottom: 15px;
+}
+
+.back-btn {
+  background: none;
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  color: white;
+  padding: 5px 15px;
+  border-radius: 20px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.back-btn:hover {
+  background: rgba(255, 255, 255, 0.1);
+  border-color: white;
+}
+
+.attendees-table-container {
+  background: white;
+  border-radius: 12px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+  overflow: hidden;
+  margin-top: 30px;
+}
+
+.attendees-table {
+  width: 100%;
+  border-collapse: collapse;
+  text-align: left;
+}
+
+.attendees-table th {
+  background: var(--light-bg);
+  padding: 15px 20px;
+  font-weight: 600;
+  color: var(--text-dark);
+  border-bottom: 2px solid #eee;
+}
+
+.attendees-table td {
+  padding: 15px 20px;
+  border-bottom: 1px solid #eee;
+}
+
+.attendees-table tr:last-child td {
+  border-bottom: none;
+}
+
+.no-attendees {
+  padding: 60px;
+  text-align: center;
+  color: #666;
+}

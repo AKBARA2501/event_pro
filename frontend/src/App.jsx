@@ -13,6 +13,7 @@ import Settings from './pages/Settings'
 import Help from './pages/Help'
 import Contact from './pages/Contact'
 import About from './pages/About'
+import AttendeesList from './pages/AttendeesList'
 
 function App() {
   return (
@@ -22,6 +23,7 @@ function App() {
         <Route path="/" element={<Home />} />
         <Route path="/events" element={<EventsList />} />
         <Route path="/event/:id" element={<EventDetails />} />
+        <Route path="/event/:id/attendees" element={<AttendeesList />} />
         <Route path="/create-event" element={<CreateEvent />} />
         <Route path="/my-events" element={<MyEvents />} />
         <Route path="/bookings" element={<Bookings />} />

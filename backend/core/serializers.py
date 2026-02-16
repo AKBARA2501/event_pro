@@ -52,7 +52,7 @@ class EventDetailSerializer(serializers.ModelSerializer):
         fields = [
             'id', 'title', 'description', 'organizer', 'location',
             'date', 'capacity', 'price', 'status', 'image',
-            'booking_count', 'available_slots', 'bookings', 'created_at', 'updated_at'
+            'booking_count', 'available_slots', 'created_at', 'updated_at'
         ]
     
     def get_booking_count(self, obj):
